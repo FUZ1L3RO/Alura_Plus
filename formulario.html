@@ -1,67 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Plus</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<style>
-*{
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+
+        <title>Cadastro</title>
+    </head>
+    <style>
+       
+* {
     margin: 0;
     padding: 0;
 }
+
 body{
     width: 100%;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #000000, #2b2b2b, #424242);
+    background: linear-gradient(-45deg, #4b4c4d, #0254d8, #3a3838);
 }
 
+#titulo {
+    font-family: sans-serif;
+    color: #000000;
+    margin-left: 7%;
+} 
 
-</style>
-<body>
-    
-    <div class="registroformulario"><h1>Formulário de Cadastro</h1></div>
-    <div class="conteudo">
+#subtitulo {
+    font-family: sans-serif;
+    color: #f0f0f0;
+    margin-left: 10%;
+} 
+
+#check{
+    display: inline-block;
+}
+
+fieldset {
+    border: 0;
+}
+
+body{
+    background-color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    margin-left: 36%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+input, select, textarea, button {
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #2c283a;
+    border-radius: 5px;
+}
+
+.grupo:before, .grupo:after {
+    display: table;
+}
+
+.grupo:after {
+    clear: both;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: 0.2em;
+    color: #131313;
+    display: block;
+}
+
+fieldset.grupo .campo {
+    float:  left;
+    margin-right: 1em;
+}
+
+.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea {
+    padding: 0.2em;
+    border: 1px solid #8e8e8e;
+    box-shadow: 2px 2px 2px rgba(192, 192, 192, 0.2);
+    display: block;
+}
+
+.campo select option {
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    background: #ffffff;
+}
+
+.botao {
+    font-size: 1.2em;
+    background: #eeeeee;
+    border: 0;
+    margin-bottom: 1em;
+    color: #ffffff;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.botao:hover {
+    background: #16151c;
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: none;
+}
+.botao, select{
+    cursor: pointer;
+}
+    </style>
+
+    <body>  
+
+        <div>
+            <h1 id="titulo">Cadastro de Alura Plus</h1>
+            <p id="subtitulo">Complete suas informações</p>
+            <br>
+        </div>
+
         <form>
+
+            <fieldset class="grupo">
+                <div class="campo">
+                    <label for="nome"><strong>Nome</strong></label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="sobrenome"><strong>Sobrenome</strong></label>
+                    <input type="text" name="sobrenome" id="sobrenome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email"><strong>Email</strong></label>
+                    <input type="email" name="email" placeholder="Seu E-mail">
+                
+                </div>
+
+            </fieldset> 
+<fieldset>
+            <div class="campo">
+                <label for="endereço"><strong>Endereço</strong></label>
+                <input type="endereço" name="endereço" id="endereço" required>
             </div>
 
-            <h2 class="nome">CPF</h2>
-            <input class="cpf" text name="cpf">
-            
-            <h2 class="nome">Endereço</h2>
-            <input class="endereço" text name="endereço">
+            <div class="campo">
+                <label for="telefone"><strong>Telefone</strong></label>
+                <input type="telefone" name="Telefone" placeholder="(00)0000-0000">  
+             </div>
 
-          <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade" required>
-            <select id="estado" name="estado">
-                <option value="pr">PR</option>
-                <option value="sp">SP</option>
-                <option value="rj">RJ</option>
-                <option value="rs">RS</option>
-                <option value="sc">SC</option>
-                <option value="es">ES</option>
-             <select>
+</fieldset>
+        
+            <div class="campo">
+                <label for="senioridade"><strong>Sexo</strong></label>
+                <select id="senioridade" required>
+                  <option selected disabled value="">Selecione</option>
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                  <option>Outros</option>
+                </select>
+            </div>
 
-            <h2 class="nome">Gmail</h2>
-            <input class="Gmail" type="text" name="gmail">
+            <fieldset class="grupo">
+                <div id="check">
+                    <label><strong>Forma de Pagamento?:</strong></label><br><br>
+                    <input type="checkbox" id="pagamento01" name="pagamento01" value="Pix">
+                    <label for="pagamento01">Pix</label>
+                    <input type="checkbox" id="pagamento02" name="pagamento02" value="Crédito">
+                    <label for="pagamento02">Crédito</label>
+                    <input type="checkbox" id="pagamento03" name="pagamento03" value="Dépito">
+                    <label for="pagamento03">Débito</label>
+                    <input type="checkbox" id="pagamento04" name="pagamento04" value="Boleto">
+                    <label for="pagamento04">Boleto</label>
+              </div>
+</fieldset>  
 
-            <h2 class="nome">Telefone com DDD</h2>
-            <input class="codigo" type="text" name="codigo_area">
-          
+<div class="campo">
+    <br>
+    <label for="experiencia"><strong>Conte um pouco sobre alura </strong></label>
+    <textarea rows="6" style="width: 26em" id="experiencia" name="experiencia"></textarea>
+</div>
 
-            <h2 class="nome">Sexo</h2>
-            <select class="opcoes" name="asssuto">
-            
-                <option disabled="disabled" selected="selected">.. Selecione a opção</option>
-                <option>Masculino</option>
-                <option>Feminino</option>
+<button class="botao" type="submit" onsubmit=""><a href="agradecimento.html">Concluído</a></button>            
 
-            
-            
-</select>
         </form>
-    </div>
-</body>
+
+    </body>
+
 </html>
